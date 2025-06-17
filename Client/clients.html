@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients - Social Edge</title>
+    <link rel="icon" type="images/webp" href="../images/logo.webp">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f06, #3f9, #60f, #fc0);
+            color: #080808;
+            font-family: 'Inter', sans-serif;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* Sketch Elements for background */
+        .sketch-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .dot-element {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .star-element {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-bottom: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-35deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .star-element:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-top: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-70deg);
+        }
+
+        .moon-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 20px 10px 0 0 rgba(255, 255, 255, 1);
+            background: transparent;
+            transform: rotate(-15deg);
+        }
+
+        .cloud-element {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .cloud-element:before, .cloud-element:after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+        }
+
+        .cloud-element:before {
+            width: 50px;
+            height: 50px;
+            top: -20px;
+            left: 10px;
+        }
+
+        .cloud-element:after {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            right: 10px;
+        }
+
+        .snow-flake {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+        }
+
+        .clients-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .client-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .client-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #fff;
+        }
+
+        .client-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #0c0c0c;
+        }
+
+        .client-category {
+            color: rgba(10, 10, 10, 0.8);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .client-description {
+            color: rgba(10, 10, 10, 0.9);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #b90d01;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            color: #0c0c0c;
+        }
+
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .client-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sketch-background">
+        <!-- Dot elements -->
+        <div class="dot-element" style="top: 20%; left: 30%;"></div>
+        <div class="dot-element" style="top: 40%; right: 25%;"></div>
+        <div class="dot-element" style="bottom: 30%; left: 40%;"></div>
+        <div class="dot-element" style="top: 15%; left: 60%;"></div>
+        <div class="dot-element" style="top: 70%; right: 10%;"></div>
+        <div class="dot-element" style="bottom: 5%; left: 50%;"></div>
+        <div class="dot-element" style="top: 55%; left: 20%;"></div>
+        <div class="dot-element" style="bottom: 25%; right: 40%;"></div>
+        <div class="dot-element" style="top: 85%; left: 15%;"></div>
+        <div class="dot-element" style="top: 35%; right: 50%;"></div>
+        <div class="dot-element" style="top: 10%; right: 5%;"></div>
+        <div class="dot-element" style="bottom: 10%; left: 5%;"></div>
+        <div class="dot-element" style="top: 50%; left: 50%;"></div>
+        <div class="dot-element" style="top: 30%; left: 80%;"></div>
+        <div class="dot-element" style="bottom: 60%; right: 20%;"></div>
+
+        <!-- Star elements -->
+        <div class="star-element" style="top: 5%; right: 35%;"></div>
+        <div class="star-element" style="bottom: 35%; right: 5%; transform: scale(0.7) rotate(20deg);"></div>
+        <div class="star-element" style="top: 60%; left: 45%; transform: scale(0.9) rotate(-10deg);"></div>
+        <div class="star-element" style="top: 25%; left: 70%; transform: scale(0.6) rotate(50deg);"></div>
+        <div class="star-element" style="bottom: 15%; right: 50%; transform: scale(0.8) rotate(-25deg);"></div>
+        <div class="star-element" style="top: 80%; left: 5%; transform: scale(0.5) rotate(70deg);"></div>
+
+        <!-- Moon elements -->
+        <div class="moon-element" style="top: 30%; left: 10%;"></div>
+        <div class="moon-element" style="bottom: 5%; right: 45%; transform: scale(0.6) rotate(90deg);"></div>
+        <div class="moon-element" style="top: 80%; left: 70%; transform: scale(0.5) rotate(-30deg);"></div>
+        <div class="moon-element" style="top: 10%; right: 10%; transform: scale(0.7) rotate(150deg);"></div>
+
+        <!-- Cloud elements -->
+        <div class="cloud-element" style="top: 5%; left: 5%; transform: scale(0.8);"></div>
+        <div class="cloud-element" style="top: 85%; right: 10%; transform: scale(1.1);"></div>
+        <div class="cloud-element" style="top: 20%; left: 40%; transform: scale(0.7);"></div>
+        <div class="cloud-element" style="bottom: 10%; left: 5%; transform: scale(0.9);"></div>
+        <div class="cloud-element" style="top: 50%; right: 25%; transform: scale(0.6);"></div>
+
+        <!-- Snow flakes -->
+        <div class="snow-flake" style="top: 1%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 3%; left: 10%;"></div>
+        <div class="snow-flake" style="top: 6%; left: 25%;"></div>
+        <div class="snow-flake" style="top: 8%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 11%; left: 50%;"></div>
+        <div class="snow-flake" style="top: 13%; left: 65%;"></div>
+        <div class="snow-flake" style="top: 16%; left: 80%;"></div>
+        <div class="snow-flake" style="top: 18%; left: 90%;"></div>
+
+        <div class="snow-flake" style="bottom: 1%; right: 2%;"></div>
+        <div class="snow-flake" style="bottom: 3%; right: 10%;"></div>
+        <div class="snow-flake" style="bottom: 6%; right: 25%;"></div>
+        <div class="snow-flake" style="bottom: 8%; right: 35%;"></div>
+        <div class="snow-flake" style="bottom: 11%; right: 50%;"></div>
+        <div class="snow-flake" style="bottom: 13%; right: 65%;"></div>
+        <div class="snow-flake" style="bottom: 16%; right: 80%;"></div>
+        <div class="snow-flake" style="bottom: 18%; right: 90%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 45%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 45%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 12%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 18%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 78%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 12%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 15%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 185%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 178%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 112%;"></div>
+    </div>
+    <div class="clients-container">
+        <h1>Our Valued Clients</h1>
+        
+        <div class="clients-grid">
+            <!-- Client Card 1 -->
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="../images/logo.webp" alt="Client 1">
+                </div>
+                <h3 class="client-name">Tech Innovators</h3>
+                <p class="client-category">Technology</p>
+                <p class="client-description">Leading the way in digital transformation with innovative solutions and cutting-edge technology.</p>
+            </div>
+
+            <!-- Client Card 2 -->
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="../images/logo.webp" alt="Client 2">
+                </div>
+                <h3 class="client-name">Green Life</h3>
+                <p class="client-category">Sustainability</p>
+                <p class="client-description">Committed to environmental conservation and sustainable living practices.</p>
+            </div>
+
+            <!-- Client Card 3 -->
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="../images/logo.webp" alt="Client 3">
+                </div>
+                <h3 class="client-name">Creative Minds</h3>
+                <p class="client-category">Design & Art</p>
+                <p class="client-description">Pushing boundaries in creative design and artistic expression.</p>
+            </div>
+
+            <!-- Client Card 4 -->
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="../images/logo.webp" alt="Client 4">
+                </div>
+                <h3 class="client-name">Health Plus</h3>
+                <p class="client-category">Healthcare</p>
+                <p class="client-description">Dedicated to improving lives through innovative healthcare solutions.</p>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html> 

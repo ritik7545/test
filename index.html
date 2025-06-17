@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Edge</title>
+    <link rel="icon" type="images/webp" href="images/logo.webp">
+    <link rel="stylesheet" href="style.css"> <!-- Link to the main style.css file -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons, if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about/about.html">About</a></li>
+                <li><a href="Service/services.html">Services</a></li>
+                <li><a href="#contact">Lets work Together</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content-grid">
+        <!-- Top Left Card: Profile -->
+        <section class="card profile-card">
+            <div class="profile-image-container">
+                <img src="images/logo.webp" alt="David Henderson">
+            </div>
+            <p class="label">Welcome to </p>
+            <h2>Social Edge</h2>
+            <p>At Social Edge, we help businesses, creators, and personal brands grow faster and smarter on social media. As experienced Social Media Managers, we specialize in building online visibility, driving engagement, and turning followers into loyal customers.
+               Whether you're a startup, small business, or influencer, our tailored strategies ensure your brand stands out in a crowded digital space.
+            </p>
+        </section>
+
+        <!-- Top Right Section -->
+        <section class="card latest-work-card">
+            <h3>Our Latest Project</h3>
+            <div class="carousel-container">
+                <button class="carousel-arrow left-arrow" onclick="changeImage(-1)">❮</button>
+                <div class="image-wrapper">
+                    <img id="dynamic-image" src="" alt="Dynamic Image">
+                </div>
+                <button class="carousel-arrow right-arrow" onclick="changeImage(1)">❯</button>
+            </div>
+            <style>
+                .latest-work-card {
+                    background: linear-gradient(135deg, #6200ff, #8a2be2);
+                    color: #fff;
+                }
+                
+                .carousel-container {
+                    position: relative;
+                    width: 100%;
+                    margin: 20px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .image-wrapper {
+                    width: 100%;
+                    height: 300px;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                #dynamic-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                }
+
+                .carousel-arrow {
+                    background: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    font-size: 20px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    position: absolute;
+                    z-index: 2;
+                }
+
+                .carousel-arrow:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(1.1);
+                }
+
+                .left-arrow {
+                    left: 10px;
+                }
+
+                .right-arrow {
+                    right: 10px;
+                }
+
+                .fade {
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+            </style>
+        </section>
+
+        <!-- Middle Row Cards -->
+        <section class="card more-about-card">
+            <i class="fas fa-hand-holding-heart icon"></i>
+            <h4>More About Me</h4>
+            <p>Credentials</p>
+            <a href="about/about.html" class="arrow">→</a>
+        </section>
+<!-- ---------------------------------------------------------------------------- -->
+        
+        <section class="card showcase-projects-card">
+            <i class="fas fa-video icon"></i>
+            <h4>Video</h4>
+            <p>Our Video Work</p>
+            <a href="video-gallery/video.html" class="arrow">→</a>
+        </section>
+
+        <section class="card showcase-projects-card">
+            <i class="fas fa-image icon"></i>
+            <h4>Pic Edit</h4>
+            <p>Our Design work</p>
+            <a href="canva-designs/canva.html" class="arrow">→</a>
+        </section>
+
+        <section class="card showcase-projects-card">
+            <i class="fas fa-icons icon"></i>
+            <h4>Social media analytics</h4>
+            <p>Our social media analysis</p>
+            <a href="analysis/analysis.html" class="arrow">→</a>
+        </section>
+<!-- -------------------------------------------------------------------------- -->
+        <!-- Middle-Bottom Row: Stats & Let's Work Together -->
+        <section class="card stats-card">
+            <div class="stat-item">
+                <p class="number">07</p>
+                <p class="description">YEARS EXPERIENCE</p>
+            </div>
+            <div class="stat-item">
+                <p class="number">+125</p>
+                <p class="description">CLIENTS WORLDWIDE</p>
+            </div>
+            <div class="stat-item">
+                <p class="number">+210</p>
+                <p class="description">TOTAL PROJECTS</p>
+            </div>
+        </section>
+
+        <section id="contact" class="card lets-work-card">
+            <h2>Let's work<br>together.</h2>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/iritiksah"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919876543210"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/ritiksah"><i class="fab fa-facebook"></i></a>
+            </div>
+        </section>
+
+        <!-- Bottom Row Cards -->
+        <section class="card blog-card">
+            <div class="color-palette">
+                <span style="background-color: #f06;" class="color-box"></span>
+                <span style="background-color: #3f9;" class="color-box"></span>
+                <span style="background-color: #60f;" class="color-box"></span>
+                <span style="background-color: #fc0;" class="color-box"></span>
+            </div>
+            <h4>Our Clients</h4>
+            <p>Our Top Clients</p>
+            <a href="Client/clients.html" class="arrow">→</a>
+        </section>
+
+        <section class="card services-card">
+            <i class="fas fa-store icon"></i>
+            <h4>Specialization</h4>
+            <p>Services Offering</p>
+            <a href="Service/service.html" class="arrow">→</a>
+        </section>
+
+        <!-- <section class="card profiles-card">
+            <i class="fab fa-twitter icon"></i>
+            <h4>Stay with me</h4>
+            <p>Profiles</p>
+            <span class="arrow">→</span>
+        </section> -->
+    </main>
+
+    <footer>
+        <!-- <p class="website-link">www.DownloadNew.Themes.com</p> -->
+        <p class="gridx-text">Social Edge</p>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about/about.html">About</a></li>
+                <li><a href="Service/services.html">Services</a></li>
+                <li><a href="#contact">Lets work Together</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">© All rights reserved by <a href="https://linkedin.com/in/ritikkumarsah">Social Edge</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 

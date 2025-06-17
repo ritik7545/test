@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Social Edge</title>
+    <link rel="icon" type="images/webp" href="../images/logo.webp">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6200ff, #8a2be2);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            position: relative;
+            overflow-y: auto; /* Allow vertical scrolling */
+            min-height: 100vh; /* Ensure body is at least full viewport height */
+        }
+
+        /* Sketch Elements for background */
+        .sketch-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden; /* Keep background elements within fixed container */
+        }
+
+        .butterfly-wing {
+            position: absolute;
+            width: 90px;
+            height: 70px;
+            background: rgba(255, 255, 255, 1); /* Fully opaque */
+            border-radius: 50% 50% 0 50% / 100% 100% 0 0;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* More prominent shadow */
+        }
+
+        .butterfly-wing:nth-child(2n) {
+            transform: scaleX(-1);
+            border-radius: 50% 50% 50% 0 / 100% 100% 0 0;
+        }
+
+        .dot-element {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 1); /* Fully visible */
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .abstract-line {
+            position: absolute;
+            width: 180px;
+            height: 3px;
+            background: rgba(255, 255, 255, 1); /* Fully opaque */
+            transform-origin: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* New Sketch Elements */
+        .kite-element {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid rgba(255, 255, 255, 1);
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .star-element {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-bottom: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-35deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .star-element:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-top: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-70deg);
+        }
+
+        .moon-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 20px 10px 0 0 rgba(255, 255, 255, 1);
+            background: transparent;
+            transform: rotate(-15deg);
+        }
+
+        .abstract-shape { /* For animal/organic feel */
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 40% 60% 70% 30% / 60% 30% 70% 40%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: rotate(20deg);
+        }
+
+        .cloud-element {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .cloud-element:before, .cloud-element:after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+        }
+
+        .cloud-element:before {
+            width: 50px;
+            height: 50px;
+            top: -20px;
+            left: 10px;
+        }
+
+        .cloud-element:after {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            right: 10px;
+        }
+
+        .snow-flake {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+        }
+
+        .about-container {
+            background-color: rgba(14, 50, 112, 0.712); /* Highly opaque dark background */
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: none; /* Ensure no blur */
+            -webkit-backdrop-filter: none;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 50px auto; /* Centered with vertical margin */
+        }
+
+        .about-container h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-container p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .about-container a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .about-container a:hover {
+            transform: translateY(-2px);
+            color: #ccc;
+        }
+
+        .image-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .image-section img {
+            max-width: 20%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            font-size: 2em;
+            margin: 0 15px;
+            color: #fff;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+            background: none; /* Remove any background */
+        }
+
+        .social-icons a:hover {
+            color: #ccc;
+            transform: translateY(-3px);
+            background: none; /* Ensure no background on hover */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: blueviolet;
+            color: #4b07eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="sketch-background">
+        <!-- Butterfly-like elements -->
+        <!-- <div class="butterfly-wing" style="top: 10%; left: 15%;"></div>
+        <div class="butterfly-wing" style="top: 5%; left: 18%; transform: scaleX(-1) rotate(10deg);"></div>
+        <div class="butterfly-wing" style="top: 25%; right: 20%; transform: rotate(-20deg);"></div>
+        <div class="butterfly-wing" style="top: 28%; right: 23%; transform: scaleX(-1) rotate(-10deg);"></div>
+        <div class="butterfly-wing" style="bottom: 15%; left: 10%; transform: rotate(5deg);"></div>
+        <div class="butterfly-wing" style="bottom: 12%; left: 13%; transform: scaleX(-1) rotate(-5deg);"></div>
+        <div class="butterfly-wing" style="bottom: 20%; right: 15%; transform: rotate(25deg);"></div>
+        <div class="butterfly-wing" style="bottom: 23%; right: 18%; transform: scaleX(-1) rotate(15deg);"></div>
+        <div class="butterfly-wing" style="top: 40%; left: 5%; transform: rotate(30deg);"></div>
+        <div class="butterfly-wing" style="top: 43%; left: 8%; transform: scaleX(-1) rotate(20deg);"></div>
+        <div class="butterfly-wing" style="top: 60%; left: 70%; transform: rotate(-5deg);"></div>
+        <div class="butterfly-wing" style="top: 63%; left: 73%; transform: scaleX(-1) rotate(5deg);"></div>
+        <div class="butterfly-wing" style="top: 80%; left: 25%; transform: rotate(10deg);"></div>
+        <div class="butterfly-wing" style="top: 83%; left: 28%; transform: scaleX(-1) rotate(0deg);"></div> -->
+
+        <!-- Dot elements -->
+        <div class="dot-element" style="top: 20%; left: 30%;"></div>
+        <div class="dot-element" style="top: 40%; right: 25%;"></div>
+        <div class="dot-element" style="bottom: 30%; left: 40%;"></div>
+        <div class="dot-element" style="top: 15%; left: 60%;"></div>
+        <div class="dot-element" style="top: 70%; right: 10%;"></div>
+        <div class="dot-element" style="bottom: 5%; left: 50%;"></div>
+        <div class="dot-element" style="top: 55%; left: 20%;"></div>
+        <div class="dot-element" style="bottom: 25%; right: 40%;"></div>
+        <div class="dot-element" style="top: 85%; left: 15%;"></div>
+        <div class="dot-element" style="top: 35%; right: 50%;"></div>
+        <div class="dot-element" style="top: 10%; right: 5%;"></div>
+        <div class="dot-element" style="bottom: 10%; left: 5%;"></div>
+        <div class="dot-element" style="top: 50%; left: 50%;"></div>
+        <div class="dot-element" style="top: 30%; left: 80%;"></div>
+        <div class="dot-element" style="bottom: 60%; right: 20%;"></div>
+        
+
+        <!-- Abstract Lines -->
+        <!-- <div class="abstract-line" style="top: 50%; left: 5%; transform: rotate(30deg);"></div>
+        <div class="abstract-line" style="top: 30%; right: 10%; transform: rotate(-45deg);"></div>
+        <div class="abstract-line" style="bottom: 40%; left: 25%; transform: rotate(15deg);"></div>
+        <div class="abstract-line" style="bottom: 10%; right: 5%; transform: rotate(-60deg);"></div>
+        <div class="abstract-line" style="top: 10%; right: 40%; transform: rotate(75deg);"></div>
+        <div class="abstract-line" style="bottom: 50%; left: 55%; transform: rotate(-10deg);"></div>
+        <div class="abstract-line" style="top: 70%; left: 30%; transform: rotate(90deg);"></div>
+        <div class="abstract-line" style="bottom: 30%; right: 30%; transform: rotate(40deg);"></div>
+        <div class="abstract-line" style="top: 5%; left: 70%; transform: rotate(20deg);"></div>
+        <div class="abstract-line" style="bottom: 5%; right: 70%; transform: rotate(-20deg);"></div> -->
+
+        <!-- Kite elements -->
+        <div class="kite-element" style="top: 18%; left: 50%;"></div>
+        <div class="kite-element" style="bottom: 10%; left: 30%; transform: scale(0.8) rotate(60deg);"></div>
+        <div class="kite-element" style="top: 70%; right: 55%; transform: scale(0.9) rotate(-20deg);"></div>
+        <div class="kite-element" style="top: 40%; right: 15%; transform: scale(0.7) rotate(10deg);"></div>
+        <div class="kite-element" style="bottom: 40%; left: 15%; transform: scale(1.0) rotate(35deg);"></div>
+
+        <!-- Star elements -->
+        <div class="star-element" style="top: 5%; right: 35%;"></div>
+        <div class="star-element" style="bottom: 35%; right: 5%; transform: scale(0.7) rotate(20deg);"></div>
+        <div class="star-element" style="top: 60%; left: 45%; transform: scale(0.9) rotate(-10deg);"></div>
+        <div class="star-element" style="top: 25%; left: 70%; transform: scale(0.6) rotate(50deg);"></div>
+        <div class="star-element" style="bottom: 15%; right: 50%; transform: scale(0.8) rotate(-25deg);"></div>
+        <div class="star-element" style="top: 80%; left: 5%; transform: scale(0.5) rotate(70deg);"></div>
+
+        <!-- Moon elements -->
+        <div class="moon-element" style="top: 30%; left: 10%;"></div>
+        <div class="moon-element" style="bottom: 5%; right: 45%; transform: scale(0.6) rotate(90deg);"></div>
+        <div class="moon-element" style="top: 80%; left: 70%; transform: scale(0.5) rotate(-30deg);"></div>
+        <div class="moon-element" style="top: 10%; right: 10%; transform: scale(0.7) rotate(150deg);"></div>
+
+        <!-- Abstract/Animal shapes -->
+        <div class="abstract-shape" style="top: 50%; right: 5%;"></div>
+        <div class="abstract-shape" style="bottom: 20%; left: 50%; transform: scale(0.7) rotate(40deg);"></div>
+        <div class="abstract-shape" style="top: 75%; right: 30%; transform: scale(0.9) rotate(-20deg);"></div>
+        <div class="abstract-shape" style="top: 15%; left: 80%; transform: scale(0.6) rotate(10deg);"></div>
+        <div class="abstract-shape" style="bottom: 5%; left: 15%; transform: scale(0.8) rotate(-30deg);"></div>
+        <div class="abstract-shape" style="top: 30%; left: 3%; transform: scale(0.5) rotate(60deg);"></div>
+
+        <!-- Cloud elements -->
+        <div class="cloud-element" style="top: 5%; left: 5%; transform: scale(0.8);"></div>
+        <div class="cloud-element" style="top: 85%; right: 10%; transform: scale(1.1);"></div>
+        <div class="cloud-element" style="top: 20%; left: 40%; transform: scale(0.7);"></div>
+        <div class="cloud-element" style="bottom: 10%; left: 5%; transform: scale(0.9);"></div>
+        <div class="cloud-element" style="top: 50%; right: 25%; transform: scale(0.6);"></div>
+
+        <!-- Snow flakes -->
+        <div class="snow-flake" style="top: 1%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 3%; left: 10%;"></div>
+        <div class="snow-flake" style="top: 6%; left: 25%;"></div>
+        <div class="snow-flake" style="top: 8%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 11%; left: 50%;"></div>
+        <div class="snow-flake" style="top: 13%; left: 65%;"></div>
+        <div class="snow-flake" style="top: 16%; left: 80%;"></div>
+        <div class="snow-flake" style="top: 18%; left: 90%;"></div>
+
+        <div class="snow-flake" style="bottom: 1%; right: 2%;"></div>
+        <div class="snow-flake" style="bottom: 3%; right: 10%;"></div>
+        <div class="snow-flake" style="bottom: 6%; right: 25%;"></div>
+        <div class="snow-flake" style="bottom: 8%; right: 35%;"></div>
+        <div class="snow-flake" style="bottom: 11%; right: 50%;"></div>
+        <div class="snow-flake" style="bottom: 13%; right: 65%;"></div>
+        <div class="snow-flake" style="bottom: 16%; right: 80%;"></div>
+        <div class="snow-flake" style="bottom: 18%; right: 90%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 45%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 45%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 12%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 18%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 78%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 12%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 15%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 185%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 178%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 112%;"></div>
+
+    </div>
+
+    <div class="about-container">
+        <h1>About Social Edge</h1>
+        <div class="image-section">
+            <img src="../images/logo.webp" alt="Social Edge Team">
+        </div>
+        <p>At Social Edge, we are passionate about empowering businesses and individuals to thrive in the dynamic world of social media. Founded with a vision to transform online presence, we offer comprehensive social media management services designed to elevate your brand, engage your audience, and drive measurable results.</p>
+        <p>Our team of dedicated experts specializes in crafting tailored strategies that resonate with your target market. From content creation and community management to advanced analytics and campaign optimization, we cover every aspect of your social media journey. We believe in building authentic connections and delivering creative solutions that make your brand stand out.</p>
+        <p>With years of experience and a deep understanding of the ever-evolving digital landscape, Social Edge is your trusted partner for navigating social media with confidence. Let us help you unlock your full potential and achieve your business goals.</p>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/iritiksah" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/ritikroshan" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <a href="../index.html" class="back-link">← Back to Main Page</a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,426 @@
+/* Basic Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+html {
+    scroll-behavior: smooth;
+  }
+  
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+}
+
+.navbar nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #007bff; /* Highlight color */
+}
+
+/* Main Content Grid */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: linear-gradient(to bottom right, #344799, #32CD32); /* Four-color gradient for general cards */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Profile Card */
+.profile-card {
+    grid-column: span 2; /* Spans two columns */
+    background: linear-gradient(to right, #33577e,  #007bff, #0da4af); /* Four-color blue gradient for profile card */
+    color: #fff;
+    display: flex;
+    align-items: flex-start; /* Align items to the start (left) */
+    flex-direction: column;
+    text-align: left; /* Align text to the left */
+}
+
+.profile-image-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 3px solid #fff;
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card .label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.profile-card h2 {
+    font-family: 'Pacifico', cursive; /* Apply cursive font */
+    font-size: 2.5em; /* Slightly larger for cursive */
+    margin: 10px 0;
+    font-weight: 400; /* Pacifico is not very bold */
+    text-align: center; /* Ensure text in profile card is centered */
+}
+
+.profile-card p {
+    font-family: 'Inter', sans-serif; /* Apply a different sans-serif font */
+    font-size: 1em;
+    opacity: 0.9;
+    text-align: left; /* Ensure paragraph text is left-aligned on mobile */
+}
+
+/* our Latest project */
+.latest-work-card {
+    grid-column: span 2; /* Spans two columns */
+    background: linear-gradient(to bottom right, #06d3ee, #132da3, #08962b, #06d3ee); /* Four-color gradient for latest work card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.latest-work-card .label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.latest-work-card h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* Small Cards (More About Me, Showcase) */
+.more-about-card, .showcase-projects-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.more-about-card .icon, .showcase-projects-card .icon {
+    font-size: 2em;
+    color: #fbfcfd;
+    margin-bottom: 10px;
+}
+
+.more-about-card h4, .showcase-projects-card h4 {
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+.more-about-card p, .showcase-projects-card p {
+    margin: 0;
+    font-size: 0.9em;   
+    color: #ccc;
+}
+
+.more-about-card .arrow, .showcase-projects-card .arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #4401fd;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+/* Remove any duplicate arrow styles */
+.arrow::after {
+    display: none;
+}
+
+.arrow::before {
+    display: none;
+}
+
+/* Stats Card */
+.stats-card {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically on small screens */
+    gap: 15px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .stats-card {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+    }
+}
+
+.stat-item .number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fafcfd;
+    margin-bottom: 5px;
+}
+
+.stat-item .description {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #ccc;
+}
+
+/* Let's Work Together Card */
+.lets-work-card {
+    background: linear-gradient(to bottom, #cc00ff,  #3e648b, #b39800); /* Four-color blue gradient for let's work card */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.lets-work-card h2 {
+    font-size: 2em;
+    line-height: 1.3;
+}
+
+.lets-work-card .social-icons a {
+    font-size: 2em; /* Make social icons bigger */
+    margin: 0 10px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.lets-work-card .social-icons a:hover {
+    color: #ffd700; /* Highlight color on hover (e.g., gold) */
+}
+
+/* Bottom Row Cards */
+.blog-card, .services-card, .profiles-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+
+.blog-card .color-palette {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.blog-card .color-box {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.services-card .icon, .profiles-card .icon {
+    font-size: 2em;
+    color: #f6f7f8;
+    margin-bottom: 10px;
+}
+
+.blog-card h4, .services-card h4, .profiles-card h4 {
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+.blog-card p, .services-card p, .profiles-card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.blog-card .arrow, .services-card .arrow, .profiles-card .arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #4401fd;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+
+footer .website-link {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+footer .gridx-text {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+footer .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+footer .footer-nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer .footer-nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+footer .footer-nav ul li a:hover {
+    color: #007bff;
+}
+
+footer .copyright {
+    font-size: 0.8em;
+    color: #ccc;
+    margin-top: 15px;
+}
+
+footer .copyright a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .main-content-grid {
+        grid-template-columns: 1fr; /* Stack all sections vertically on mobile */
+    }
+
+    .profile-card, .latest-work-card, .more-about-card, .showcase-projects-card, .stats-card, .lets-work-card, .blog-card, .services-card, .profiles-card {
+        grid-column: span 1; /* Ensure all cards occupy a single column */
+        text-align: center; /* Center text for single column layout */
+        align-items: center; /* Center items for single column layout */
+    }
+
+    .profile-card h2 {
+        text-align: center; /* Ensure text in profile card is centered */
+    }
+
+    .profile-card p {
+        text-align: left; /* Keep paragraph text left-aligned on mobile */
+    }
+
+    .more-about-card .arrow, .showcase-projects-card .arrow, .blog-card .arrow, .services-card .arrow, .profiles-card .arrow {
+        position: static; /* Remove absolute positioning */
+        margin-top: 15px; /* Add some space */
+    }
+
+    .lets-work-card h2 {
+        font-size: 1.8em; /* Adjust font size for smaller screens */
+    }
+
+    .lets-work-card .social-icons a {
+        font-size: 1.8em; /* Adjust icon size for smaller screens */
+    }
+
+    .stat-item .number {
+        font-size: 2em;
+    }
+
+    .stat-item .description {
+        font-size: 0.8em;
+    }
+}
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+#dynamic-image {
+    transition: opacity 0.3s ease;
+}
+
+#dynamic-image.fade {
+    opacity: 0;
+} 

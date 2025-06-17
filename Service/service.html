@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Social Edge</title>
+    <link rel="icon" type="images/webp" href="../images/logo.webp">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right top, #6200ff, #8a2be2); /* Beautiful full gradient, consistent with about.html */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* Sketch Elements for background */
+        .sketch-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .dot-element {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .star-element {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-bottom: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-35deg);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .star-element:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-top: 25px solid rgba(255, 255, 255, 1);
+            transform: rotate(-70deg);
+        }
+
+        .moon-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 20px 10px 0 0 rgba(255, 255, 255, 1);
+            background: transparent;
+            transform: rotate(-15deg);
+        }
+
+        .cloud-element {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .cloud-element:before, .cloud-element:after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+        }
+
+        .cloud-element:before {
+            width: 50px;
+            height: 50px;
+            top: -20px;
+            left: 10px;
+        }
+
+        .cloud-element:after {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            right: 10px;
+        }
+
+        .snow-flake {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+        }
+
+        .services-container {
+            background-color: rgba(153, 17, 207, 0.726);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+        .services-container h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .pricing-card {
+            background: linear-gradient(to bottom right, #e3fc02, #04e977); /* Gradient similar to index.html cards */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(25, 112, 184, 0.3);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+        }
+        .pricing-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        .pricing-card .price {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #0c0c0c; /* Highlight price */
+            text-align: left; /* Align price to the left */
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        .pricing-card ul li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #2906f3;
+            text-align: left; /* Align list items to the left */
+        }
+        .pricing-card .btn {
+            background-color: #007bff;
+            color: #0f0f0f;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .pricing-card .btn:hover {
+            background-color: #0056b3;
+        }
+        .back-home {
+            margin-top: 30px;
+            color: #0f0f0f;
+            text-decoration: none;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-home:hover {
+            background-color: rgba(8, 143, 233, 0.76);
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-container {
+                padding: 20px;
+            }
+            .services-container h1 {
+                font-size: 2.5em;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sketch-background">
+        <!-- Dot elements -->
+        <div class="dot-element" style="top: 20%; left: 30%;"></div>
+        <div class="dot-element" style="top: 40%; right: 25%;"></div>
+        <div class="dot-element" style="bottom: 30%; left: 40%;"></div>
+        <div class="dot-element" style="top: 15%; left: 60%;"></div>
+        <div class="dot-element" style="top: 70%; right: 10%;"></div>
+        <div class="dot-element" style="bottom: 5%; left: 50%;"></div>
+        <div class="dot-element" style="top: 55%; left: 20%;"></div>
+        <div class="dot-element" style="bottom: 25%; right: 40%;"></div>
+        <div class="dot-element" style="top: 85%; left: 15%;"></div>
+        <div class="dot-element" style="top: 35%; right: 50%;"></div>
+        <div class="dot-element" style="top: 10%; right: 5%;"></div>
+        <div class="dot-element" style="bottom: 10%; left: 5%;"></div>
+        <div class="dot-element" style="top: 50%; left: 50%;"></div>
+        <div class="dot-element" style="top: 30%; left: 80%;"></div>
+        <div class="dot-element" style="bottom: 60%; right: 20%;"></div>
+
+        <!-- Star elements -->
+        <div class="star-element" style="top: 5%; right: 35%;"></div>
+        <div class="star-element" style="bottom: 35%; right: 5%; transform: scale(0.7) rotate(20deg);"></div>
+        <div class="star-element" style="top: 60%; left: 45%; transform: scale(0.9) rotate(-10deg);"></div>
+        <div class="star-element" style="top: 25%; left: 70%; transform: scale(0.6) rotate(50deg);"></div>
+        <div class="star-element" style="bottom: 15%; right: 50%; transform: scale(0.8) rotate(-25deg);"></div>
+        <div class="star-element" style="top: 80%; left: 5%; transform: scale(0.5) rotate(70deg);"></div>
+
+        <!-- Moon elements -->
+        <div class="moon-element" style="top: 30%; left: 10%;"></div>
+        <div class="moon-element" style="bottom: 5%; right: 45%; transform: scale(0.6) rotate(90deg);"></div>
+        <div class="moon-element" style="top: 80%; left: 70%; transform: scale(0.5) rotate(-30deg);"></div>
+        <div class="moon-element" style="top: 10%; right: 10%; transform: scale(0.7) rotate(150deg);"></div>
+
+        <!-- Cloud elements -->
+        <div class="cloud-element" style="top: 5%; left: 5%; transform: scale(0.8);"></div>
+        <div class="cloud-element" style="top: 85%; right: 10%; transform: scale(1.1);"></div>
+        <div class="cloud-element" style="top: 20%; left: 40%; transform: scale(0.7);"></div>
+        <div class="cloud-element" style="bottom: 10%; left: 5%; transform: scale(0.9);"></div>
+        <div class="cloud-element" style="top: 50%; right: 25%; transform: scale(0.6);"></div>
+
+        <!-- Snow flakes -->
+        <div class="snow-flake" style="top: 1%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 3%; left: 10%;"></div>
+        <div class="snow-flake" style="top: 6%; left: 25%;"></div>
+        <div class="snow-flake" style="top: 8%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 11%; left: 50%;"></div>
+        <div class="snow-flake" style="top: 13%; left: 65%;"></div>
+        <div class="snow-flake" style="top: 16%; left: 80%;"></div>
+        <div class="snow-flake" style="top: 18%; left: 90%;"></div>
+
+        <div class="snow-flake" style="bottom: 1%; right: 2%;"></div>
+        <div class="snow-flake" style="bottom: 3%; right: 10%;"></div>
+        <div class="snow-flake" style="bottom: 6%; right: 25%;"></div>
+        <div class="snow-flake" style="bottom: 8%; right: 35%;"></div>
+        <div class="snow-flake" style="bottom: 11%; right: 50%;"></div>
+        <div class="snow-flake" style="bottom: 13%; right: 65%;"></div>
+        <div class="snow-flake" style="bottom: 16%; right: 80%;"></div>
+        <div class="snow-flake" style="bottom: 18%; right: 90%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 45%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 45%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 12%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 18%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 78%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 12%;"></div>
+
+        <div class="snow-flake" style="top: 45%; left: 35%;"></div>
+        <div class="snow-flake" style="top: 55%; right: 15%;"></div>
+        <div class="snow-flake" style="top: 22%; left: 2%;"></div>
+        <div class="snow-flake" style="top: 78%; right: 185%;"></div>
+        <div class="snow-flake" style="bottom: 22%; left: 178%;"></div>
+        <div class="snow-flake" style="bottom: 78%; right: 112%;"></div>
+    </div>
+    <div class="services-container">
+        <h1>Our Service Offerings</h1>
+        <p>Choose the plan that best fits your social media needs. We offer flexible solutions tailored to help you achieve your goals.</p>
+
+        <div class="pricing-grid">
+            <!-- Service 1: Basic Boost -->
+            <div class="pricing-card">
+                <h2>Basic Boost</h2>
+                <p class="price">&#8377;199<span>/month</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Social Media Audit</li>
+                    <li><i class="fas fa-check-circle"></i> Content Strategy (Monthly)</li>
+                    <li><i class="fas fa-check-circle"></i> 10 Posts/Month</li>
+                    <li><i class="fas fa-check-circle"></i> Basic Engagement Monitoring</li>
+                    <li><i class="fas fa-check-circle"></i> Monthly Performance Report</li>
+                </ul>
+                <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Get Started</a>
+            </div>
+
+            <!-- Service 2: Growth Accelerator -->
+            <div class="pricing-card">
+                <h2>Growth Accelerator</h2>
+                <p class="price"> &#8377;299<span>/month</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Everything in Basic Boost</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced Content Creation</li>
+                    <li><i class="fas fa-check-circle"></i> 25 Posts/Month</li>
+                    <li><i class="fas fa-check-circle"></i> Proactive Community Management</li>
+                    <li><i class="fas fa-check-circle"></i> Weekly Performance Reports + Strategy Calls</li>
+                    <li><i class="fas fa-check-circle"></i> Basic Ad Campaign Management</li>
+                </ul>
+                <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Choose Plan</a>
+            </div>
+
+            <!-- Service 3: Elite Domination -->
+            <div class="pricing-card">
+                <h2>Elite Domination</h2>
+                <p class="price"> &#8377;499 <span>/month</span></p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Everything in Growth Accelerator</li>
+                    <li><i class="fas fa-check-circle"></i> Premium Content Production (Video/Graphics)</li>
+                    <li><i class="fas fa-check-circle"></i> Unlimited Posts/Month</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated Social Media Manager</li>
+                    <li><i class="fas fa-check-circle"></i> Comprehensive Ad Campaign Management</li>
+                    <li><i class="fas fa-check-circle"></i> Influencer Outreach & Collaborations</li>
+                    <li><i class="fas fa-check-circle"></i> Crisis Management & Reputation Building</li>
+                </ul>
+                <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Dominate Now</a>
+            </div>
+        </div>
+    </div>
+    <a href="../index.html" class="back-home">Back to Home</a>
+</body>
+</html> 
