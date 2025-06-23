@@ -146,12 +146,32 @@
         }
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-top: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: stretch;
+        }
+        @media (max-width: 1200px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card {
+                height: auto;
+                min-height: 0;
+                max-height: none;
+            }
         }
         .pricing-card {
-            background: linear-gradient(to bottom right, #e3fc02, #04e977); /* Gradient similar to index.html cards */
+            background: linear-gradient(to bottom right, #e3fc02, #04e977);
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(25, 112, 184, 0.3);
@@ -160,15 +180,18 @@
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.3s ease;
+            height: 540px;
+            min-height: 540px;
+            max-height: 540px;
         }
         .pricing-card:hover {
             transform: translateY(-8px);
         }
         .pricing-card h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #007bff;
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .pricing-card .price {
             font-size: 2.5em;
@@ -212,18 +235,6 @@
         }
         .back-home:hover {
             background-color: rgba(8, 143, 233, 0.76);
-        }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .services-container {
-                padding: 20px;
-            }
-            .services-container h1 {
-                font-size: 2.5em;
-            }
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
         }
         .social-icon-bg {
             position: absolute;
@@ -327,6 +338,21 @@
                     <li><i class="fas fa-check-circle"></i> Crisis Management & Reputation Building</li>
                 </ul>
                 <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Dominate Now</a>
+            </div>
+
+            <!-- Service 4: Custom Enterprise -->
+            <div class="pricing-card">
+                <h2>Custom Enterprise</h2>
+                <p class="price">Contact Us</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Fully Customized Solutions</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
+                    <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced Analytics & Reporting</li>
+                    <li><i class="fas fa-check-circle"></i> Enterprise Ad Campaigns</li>
+                    <li><i class="fas fa-check-circle"></i> Onboarding & Training</li>
+                </ul>
+                <a href="mailto:info@socialedge.com" class="btn">Contact Us</a>
             </div>
         </div>
     </div>
