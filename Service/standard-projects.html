@@ -127,6 +127,24 @@
                 word-break: break-word;
             }
         }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            justify-items: center;
+            margin-bottom: 2em;
+        }
+        @media (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .video-grid video {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
     </style>
 </head>
 <body>
@@ -148,8 +166,16 @@
             <div style="font-size:2em; color:#007bff; margin-bottom:0.5em;"><i class="fas fa-film"></i></div>
             <h3 style="color:#007bff; margin-bottom:0.5em;">5 Reels Edits (1/6 days)</h3>
             <p style="color:#444; margin-bottom:1.5em;">Professional reel editing delivered regularly to boost your reach and engagement with dynamic video content. Example reel:</p>
-            <video width="320" controls poster="../canva-designs/images/3.jpeg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);margin-bottom:1em;">
+            <video width="320" controls poster="../video-gallery/video/ritik.mp4" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);margin-bottom:1em;">
                 <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="320" controls poster="../video-gallery/video/myfr.mp4" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);margin-bottom:1em;">
+                <source src="../video-gallery/video/myfr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="320" controls poster="../video-gallery/video/gurav.mp4" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);margin-bottom:1em;">
+                <source src="../video-gallery/video/gurav.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </section>
@@ -261,12 +287,12 @@
             <p style="color:#888; margin-top:1.2em; font-size:0.98em;">We keep a log of engagement to ensure consistent community growth.</p>
         </section>
         <h2 style="text-align:center;margin-top:2.5em;color:#185a9d;">Sample Project Video</h2>
-        <div style="display:flex;justify-content:center;gap:2em;flex-wrap:wrap;margin-bottom:2em;">
-            <video width="340" controls poster="../canva-designs/images/2.jpg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+        <div class="video-grid">
+            <video controls poster="../canva-designs/images/2.jpg">
                 <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video width="340" controls poster="../canva-designs/images/3.jpeg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            <video controls poster="../canva-designs/images/3.jpeg">
                 <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

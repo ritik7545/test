@@ -89,6 +89,24 @@
                 word-break: break-word;
             }
         }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            justify-items: center;
+            margin-bottom: 2em;
+        }
+        @media (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .video-grid video {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
     </style>
 </head>
 <body>
@@ -110,10 +128,24 @@
             <div style="font-size:2em; color:#e74c3c; margin-bottom:0.5em;"><i class="fas fa-film"></i></div>
             <h3 style="color:#e74c3c; margin-bottom:0.5em;">7 Reels with Trends</h3>
             <p style="color:#444; margin-bottom:1.5em;">High-quality, trend-driven reels to keep your brand at the forefront of social media. Example reel:</p>
-            <video width="320" controls poster="../canva-designs/images/1.jpeg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.12);margin-bottom:1em;">
-                <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="video-grid">
+                <video controls poster="../canva-designs/images/1.jpeg">
+                    <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls poster="../canva-designs/images/1.jpeg">
+                    <source src="../video-gallery/video/myfr.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls poster="../canva-designs/images/1.jpeg">
+                    <source src="../video-gallery/video/gurav.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls poster="../canva-designs/images/1.jpeg">
+                    <source src="../video-gallery/video/gurav.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </section>
         <section style="margin: 3em auto 2em auto; max-width: 650px; background: #e7f7ff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
             <div style="font-size:2em; color:#007bff; margin-bottom:0.5em;"><i class="fas fa-hashtag"></i></div>
