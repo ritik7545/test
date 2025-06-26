@@ -31,7 +31,7 @@
             margin-bottom: 0.5em;
         }
         p {
-            text-align: center;
+            text-align: left;
             color: #444;
             margin-bottom: 2em;
         }
@@ -72,6 +72,60 @@
         .back-link:hover {
             background: #43cea2;
             color: #222;
+        }
+        @media (max-width: 600px) {
+            h1::after {
+                content: 'Standard Projects';
+                display: block;
+                font-size: 1.1em;
+                color: #185a9d;
+                margin-top: 0.3em;
+            }
+            h1 {
+                font-size: 1.3em;
+                word-break: break-word;
+            }
+            .container {
+                padding: 1em 0.3em 1em 0.3em;
+            }
+            /* 16-20 posts section images */
+            section[style*='16–20 Posts'] img {
+                width: 90px !important;
+                max-width: 100%;
+            }
+            /* Scheduling + Daily Monitoring table */
+            section[style*='Scheduling + Daily Monitoring'] table,
+            section[style*='Scheduling + Daily Monitoring'] thead,
+            section[style*='Scheduling + Daily Monitoring'] tbody,
+            section[style*='Scheduling + Daily Monitoring'] tr,
+            section[style*='Scheduling + Daily Monitoring'] th,
+            section[style*='Scheduling + Daily Monitoring'] td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            section[style*='Scheduling + Daily Monitoring'] th:nth-child(3),
+            section[style*='Scheduling + Daily Monitoring'] td:nth-child(3) {
+                width: 80px;
+                min-width: 60px;
+                max-width: 100px;
+                word-break: break-all;
+            }
+            /* Detailed Weekly Content Calendar table */
+            section[style*='Detailed Weekly Content Calendar'] table,
+            section[style*='Detailed Weekly Content Calendar'] thead,
+            section[style*='Detailed Weekly Content Calendar'] tbody,
+            section[style*='Detailed Weekly Content Calendar'] tr,
+            section[style*='Detailed Weekly Content Calendar'] th,
+            section[style*='Detailed Weekly Content Calendar'] td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            section[style*='Detailed Weekly Content Calendar'] th,
+            section[style*='Detailed Weekly Content Calendar'] td {
+                word-break: break-word;
+            }
         }
     </style>
 </head>

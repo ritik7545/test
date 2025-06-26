@@ -31,9 +31,63 @@
             margin-bottom: 0.5em;
         }
         p {
-            text-align: center;
+            text-align: left;
             color: #444;
             margin-bottom: 2em;
+        }
+        @media (max-width: 600px) {
+            h1::after {
+                content: 'Premium Projects';
+                display: block;
+                font-size: 1.1em;
+                color: #f7971e;
+                margin-top: 0.3em;
+            }
+            h1 {
+                font-size: 1.3em;
+                word-break: break-word;
+            }
+            .container {
+                padding: 1em 0.3em 1em 0.3em;
+            }
+            /* 25-30 posts section images */
+            section[style*='25–30 Posts'] img {
+                width: 90px !important;
+                max-width: 100%;
+            }
+            /* Scheduling + Daily Monitoring table */
+            section[style*='Scheduling + Daily Monitoring'] table,
+            section[style*='Scheduling + Daily Monitoring'] thead,
+            section[style*='Scheduling + Daily Monitoring'] tbody,
+            section[style*='Scheduling + Daily Monitoring'] tr,
+            section[style*='Scheduling + Daily Monitoring'] th,
+            section[style*='Scheduling + Daily Monitoring'] td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            section[style*='Scheduling + Daily Monitoring'] th:nth-child(3),
+            section[style*='Scheduling + Daily Monitoring'] td:nth-child(3) {
+                width: 80px;
+                min-width: 60px;
+                max-width: 100px;
+                word-break: break-all;
+            }
+            /* Weekly Content Plan & Approval System table */
+            section[style*='Weekly Content Plan'] table,
+            section[style*='Weekly Content Plan'] thead,
+            section[style*='Weekly Content Plan'] tbody,
+            section[style*='Weekly Content Plan'] tr,
+            section[style*='Weekly Content Plan'] th,
+            section[style*='Weekly Content Plan'] td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            section[style*='Weekly Content Plan'] th,
+            section[style*='Weekly Content Plan'] td {
+                word-break: break-word;
+            }
         }
     </style>
 </head>
