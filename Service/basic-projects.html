@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Package Projects - Social Edge</title>
+    <link rel="icon" type="images/webp" href="../images/logo.webp">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f7b42c, #fc575e);
+            color: #222;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 2rem 2rem 1.5rem 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #fc575e;
+            margin-bottom: 0.5em;
+        }
+        p {
+            text-align: center;
+            color: #444;
+            margin-bottom: 2em;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1rem;
+            text-align: center;
+        }
+        .project-item img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 8px;
+            margin-bottom: 0.7em;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            background: #fc575e;
+            padding: 0.7em 1.5em;
+            border-radius: 8px;
+            text-decoration: none;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #f7b42c;
+            color: #222;
+        }
+        .video-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+            justify-items: center;
+            margin-bottom: 2em;
+        }
+        @media (max-width: 900px) {
+            .video-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        .video-row video {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Basic Package Projects</h1>
+        <p>Here are some example projects delivered under our Basic Boost package. These include social media audits, content strategies, and post designs tailored for our clients' needs.</p>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="../canva-designs/images/1.jpeg" alt="Project 1">
+                <div>Instagram Post Design</div>
+            </div>
+            <div class="project-item">
+                <img src="../canva-designs/images/2.jpg" alt="Project 2">
+                <div>Content Strategy Sample</div>
+            </div>
+            <div class="project-item">
+                <img src="../canva-designs/images/3.jpeg" alt="Project 3">
+                <div>Monthly Report Example</div>
+            </div>
+            <div class="project-item">
+                <img src="../canva-designs/images/4.jpg" alt="Project 4">
+                <div>Engagement Monitoring</div>
+            </div>
+            <div class="project-item">
+                <img src="../canva-designs/images/5.jpeg" alt="Post Scheduling">
+                <div>Post Scheduling</div>
+            </div>
+        </div>
+        <section style="margin: 3em auto 2em auto; max-width: 600px; background: #f0f7ff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
+            <div style="font-size:2.2em; color:#4b07eb; margin-bottom:0.5em;"><i class="far fa-calendar"></i></div>
+            <h3 style="color:#4b07eb; margin-bottom:0.5em;">Content Calendar (Basic)</h3>
+            <p style="color:#444; margin-bottom:1.5em;">We provide you with a simple, clear content calendar so you always know what's coming up. Here's an example of a basic weekly calendar for your posts:</p>
+            <table style="margin:0 auto; border-collapse:collapse; width:100%; max-width:400px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <thead>
+                    <tr style="background:#4b07eb; color:#fff;">
+                        <th style="padding:0.6em;">Day</th>
+                        <th style="padding:0.6em;">Planned Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:0.5em;">Monday</td><td style="padding:0.5em;">Photo Post</td></tr>
+                    <tr style="background:#e7f7ff;"><td style="padding:0.5em;">Wednesday</td><td style="padding:0.5em;">Reel Edit</td></tr>
+                    <tr><td style="padding:0.5em;">Friday</td><td style="padding:0.5em;">Photo Post</td></tr>
+                    <tr style="background:#e7f7ff;"><td style="padding:0.5em;">Sunday</td><td style="padding:0.5em;">Photo Post</td></tr>
+                </tbody>
+            </table>
+            <p style="color:#888; margin-top:1.2em; font-size:0.98em;">Your calendar is updated monthly and shared with you for full transparency and planning.</p>
+        </section>
+        <section style="margin: 3em auto 2em auto; max-width: 600px; background: #f7faff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
+            <div style="font-size:2.2em; color:#1abc9c; margin-bottom:0.5em;"><i class="fas fa-chart-line"></i></div>
+            <h3 style="color:#1abc9c; margin-bottom:0.5em;">Monthly Performance Report (Basic)</h3>
+            <p style="color:#444; margin-bottom:1.5em;">At the end of each month, you receive a clear, easy-to-read report showing your social media progress. Here's an example of what you'll see:</p>
+            <table style="margin:0 auto; border-collapse:collapse; width:100%; max-width:400px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <thead>
+                    <tr style="background:#1abc9c; color:#fff;">
+                        <th style="padding:0.6em;">Metric</th>
+                        <th style="padding:0.6em;">This Month</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:0.5em;">Posts Published</td><td style="padding:0.5em;">12</td></tr>
+                    <tr style="background:#f7faff;"><td style="padding:0.5em;">Total Reach</td><td style="padding:0.5em;">8,500</td></tr>
+                    <tr><td style="padding:0.5em;">Engagements</td><td style="padding:0.5em;">1,200</td></tr>
+                    <tr style="background:#f7faff;"><td style="padding:0.5em;">New Followers</td><td style="padding:0.5em;">+75</td></tr>
+                </tbody>
+            </table>
+            <p style="color:#888; margin-top:1.2em; font-size:0.98em;">We review your results and suggest improvements for the next month!</p>
+        </section>
+        <section style="margin: 3em auto 2em auto; max-width: 600px; background: #f5f0ff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
+            <div style="font-size:2.2em; color:#8e44ad; margin-bottom:0.5em;"><i class="fas fa-paint-brush"></i></div>
+            <h3 style="color:#8e44ad; margin-bottom:0.5em;">Custom Canva Designs (Basic)</h3>
+            <p style="color:#444; margin-bottom:1.5em;">We create unique, branded Canva designs for your posts, stories, and more. Here are a few examples of what you might receive in the Basic package:</p>
+            <div style="display:flex;justify-content:center;gap:1.5em;flex-wrap:wrap;">
+                <img src="../canva-designs/images/1.jpeg" alt="Canva Design 1" style="width:120px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);background:#fff;">
+                <img src="../canva-designs/images/2.jpg" alt="Canva Design 2" style="width:120px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);background:#fff;">
+                <img src="../canva-designs/images/3.jpeg" alt="Canva Design 3" style="width:120px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);background:#fff;">
+            </div>
+            <p style="color:#888; margin-top:1.2em; font-size:0.98em;">All designs are tailored to your brand and delivered in ready-to-post formats.</p>
+        </section>
+        <section style="margin: 3em auto 2em auto; max-width: 600px; background: #fffbe7; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
+            <div style="font-size:2.5em; color:#fc575e; margin-bottom:0.5em;"><i class="far fa-calendar-alt"></i></div>
+            <h3 style="color:#fc575e; margin-bottom:0.5em;">How Post Scheduling Works</h3>
+            <p style="color:#444; margin-bottom:1.5em;">We help you plan and schedule your posts in advance, ensuring your content goes live at the best times for your audience. Here's an example of a typical week's schedule for a client:</p>
+            <table style="margin:0 auto; border-collapse:collapse; width:100%; max-width:400px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                <thead>
+                    <tr style="background:#fc575e; color:#fff;">
+                        <th style="padding:0.6em;">Day</th>
+                        <th style="padding:0.6em;">Scheduled Post</th>
+                        <th style="padding:0.6em;">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:0.5em;">Monday</td><td style="padding:0.5em;">Photo Post</td><td style="padding:0.5em;">10:00 AM</td></tr>
+                    <tr style="background:#f7b42c22;"><td style="padding:0.5em;">Wednesday</td><td style="padding:0.5em;">Reel Edit</td><td style="padding:0.5em;">12:00 PM</td></tr>
+                    <tr><td style="padding:0.5em;">Friday</td><td style="padding:0.5em;">Photo Post</td><td style="padding:0.5em;">11:30 AM</td></tr>
+                    <tr style="background:#f7b42c22;"><td style="padding:0.5em;">Sunday</td><td style="padding:0.5em;">Photo Post</td><td style="padding:0.5em;">9:00 AM</td></tr>
+                </tbody>
+            </table>
+            <p style="color:#888; margin-top:1.2em; font-size:0.98em;">We use scheduling tools to automate your posts, so you never miss a key moment!</p>
+        </section>
+        <section style="margin: 3em auto 2em auto; max-width: 600px; background: #e7f7ff; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2em 1.5em; text-align: center;">
+            <div style="font-size:2.2em; color:#007bff; margin-bottom:0.5em;"><i class="fas fa-hashtag"></i></div>
+            <h3 style="color:#007bff; margin-bottom:0.5em;">How We Provide Captions + Hashtag Research</h3>
+            <p style="color:#444; margin-bottom:1.5em;">For every post, we craft a unique, engaging caption and research the best hashtags to maximize your reach and engagement. Here's an example of what you receive:</p>
+            <div style="background:#fff; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,0.06); padding:1.2em 1em; margin:0 auto 1.2em auto; max-width:420px; text-align:left;">
+                <div style="font-weight:600; color:#222; margin-bottom:0.5em;">Sample Caption:</div>
+                <div style="font-style:italic; color:#444; margin-bottom:1em;">"Unlock your brand's potential with creative content! 🚀 #SocialEdge #GrowOnline"</div>
+                <div style="font-weight:600; color:#222; margin-bottom:0.5em;">Hashtag Research:</div>
+                <div style="color:#007bff; word-break:break-all;">
+                    #SocialMedia #BrandGrowth #ContentStrategy #DigitalMarketing #InstaGrowth #BusinessTips #OnlinePresence #SocialEdge #MarketingHacks #EngagementBoost
+                </div>
+            </div>
+            <p style="color:#888; font-size:0.98em;">We analyze trends and your target audience to select the most effective hashtags for every post.</p>
+        </section>
+        <h2 style="text-align:center;margin-top:2.5em;color:#fc575e;">Sample Project Video</h2>
+        
+        <div class="video-row">
+            <video controls poster="../canva-designs/images/1.jpeg">
+                <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls poster="../canva-designs/images/1.jpeg">
+                <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls poster="../canva-designs/images/1.jpeg">
+                <source src="../video-gallery/video/ritik.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a href="service.html" class="back-link">&larr; Back to Services</a>
+    </div>
+
+    
+</body>
+</html> 

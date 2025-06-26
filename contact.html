@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Social Edge</title>
+    <link rel="icon" type="images/webp" href="../images/logo.webp">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 0;
+        }
+        .contact-container {
+            max-width: 500px;
+            margin: 60px auto 0 auto;
+            background: rgba(0,0,0,0.7);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 0.5em;
+        }
+        p {
+            color: #e0e0e0;
+            margin-bottom: 2em;
+        }
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            align-items: center;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1em 2em;
+            border-radius: 10px;
+            border: none;
+            text-decoration: none;
+            color: #fff;
+            background: #222;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: background 0.2s, transform 0.2s;
+            width: 100%;
+            max-width: 350px;
+        }
+        .contact-btn i {
+            font-size: 1.7em;
+        }
+        .contact-btn.instagram { background: linear-gradient(90deg,#fd5949,#d6249f,#285AEB); }
+        .contact-btn.whatsapp { background: #25d366; color: #222; }
+        .contact-btn.facebook { background: #1877f3; }
+        .contact-btn:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.1); }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            background: #222;
+            padding: 0.7em 1.5em;
+            border-radius: 8px;
+            text-decoration: none;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #43cea2;
+            color: #185a9d;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Reach out to us directly on your favorite platform. We're here to help you grow your brand and answer any questions you have!</p>
+        <div class="contact-links">
+            <a href="https://www.instagram.com/iritiksah" target="_blank" class="contact-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://wa.me/919876543210" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.facebook.com/ritikroshan" target="_blank" class="contact-btn facebook"><i class="fab fa-facebook"></i> Facebook</a>
+        </div>
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+</body>
+</html> 
