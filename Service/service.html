@@ -168,6 +168,23 @@
                 height: auto;
                 min-height: 0;
                 max-height: none;
+                padding: 18px 8px;
+                font-size: 0.98em;
+                word-break: break-word;
+            }
+            .pricing-card h2 {
+                font-size: 1.3em;
+                word-break: break-word;
+            }
+            .pricing-card .price {
+                font-size: 1.5em;
+            }
+            .pricing-card ul li {
+                font-size: 0.98em;
+                word-break: break-word;
+            }
+            .card-actions {
+                width: 100% !important;
             }
             .services-container h1 {
                 font-weight: 400;
@@ -196,11 +213,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 0.3em;
+            color: #fc575e; /* Highlight color for headings */
         }
         .pricing-card .price {
             font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 15px;
+            margin-top: 0;
             color: #0c0c0c; /* Highlight price */
             text-align: left; /* Align price to the left */
         }
@@ -328,10 +348,13 @@
                     <li><i class="fas fa-check-circle"></i> Detailed Weekly Content Calendar</li>
                     <li><i class="fas fa-check-circle"></i> Analytics Report + Growth Suggestions</li>
                     <li><i class="fas fa-check-circle"></i> Any Canva Designs</li>
-                    <li><i class="fas fa-check-circle"></i> Audience engagement <br> (likes/comments/replies for 15 mins daily) </li>
+                    <li><i class="fas fa-check-circle"></i> Audience engagement </li>
 
                 </ul>
-                <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Choose Plan</a>
+                <div class="card-actions" style="display:flex;flex-direction:column;gap:10px;width:90%;align-items:center;box-sizing:border-box;margin:0 auto 0 auto;">
+                    <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu" class="btn" style="width:100%;max-width:100%;box-sizing:border-box;">View Plan</a>
+                    <a href="standard-projects.html" class="btn" style="background:#fff;color:#007bff;width:100%;max-width:100%;box-sizing:border-box;">View Projects</a>
+                </div>
             </div>
 
             <!-- Service 3: Elite Domination -->
@@ -349,7 +372,10 @@
                     <li><i class="fas fa-check-circle"></i> Full Community Management (DMs, comments)</li>
                     <li><i class="fas fa-check-circle"></i> Influencer/Collab Suggestions</li>
                 </ul>
-                <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn">Dominate Now</a>
+                <div class="card-actions" style="display:flex;flex-direction:column;gap:10px;width:90%;align-items:center;box-sizing:border-box;margin:0 auto 0 auto;">
+                    <a href="upi://pay?pa=ritikro754@okicici&pn=Ritik%20Sah&am=100&cu=INR" class="btn" style="width:100%;max-width:100%;box-sizing:border-box;">Dominate Now</a>
+                    <a href="premium-projects.html" class="btn" style="background:#fff;color:#007bff;width:100%;max-width:100%;box-sizing:border-box;">View Projects</a>
+                </div>
             </div>
 
             <!-- Service 4: Custom Enterprise -->
